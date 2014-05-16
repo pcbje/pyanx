@@ -25,4 +25,4 @@ chart.create('demo.anx')</pre>
 
 #### Output
 
-<div align="center"><img src="https://raw.github.com/pcbje/pynax/master/test/anb_integration.png" width="500"/></div>
+<div align="center"><img src="https://raw.githubusercontent.com/pcbje/pyanx/master/test/anb_integration.png" width="600"/></div>
