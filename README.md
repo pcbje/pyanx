@@ -22,3 +22,7 @@ chart.add_edge(jaime, tyrion, 'Brother of')
 chart.add_edge(cersei, tyrion, 'Sister of')
 
 chart.create('demo.anx')</pre>
+
+#### Output
+
+<div align="center"><img src="https://raw.github.com/pcbje/pynax/master/test/anb_integration.png" width="500"/></div>
