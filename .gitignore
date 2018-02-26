@@ -2,3 +2,4 @@
 pyanx.egg-info
 dist
 build
+*.pyc

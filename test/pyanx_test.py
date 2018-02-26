@@ -14,11 +14,9 @@ the License.
 import os
 import unittest
 
-from lxml import objectify
-
 import pyanx
 
-__author__ = 'Petter Bjelland (petter.bjelland@gmail.com)'
+__author__ = 'Petter Chr. Bjelland (petter.bjelland@gmail.com)'
 
 
 class PyanxUnitTest(unittest.TestCase):
@@ -54,7 +52,7 @@ class PyanxUnitTest(unittest.TestCase):
 
     self.assertEquals(1, len(link_types))
     self.assertEquals("Link", link_types[0].get_Name())
-    
+
   def test_ChartItemCount(self):
     chart_items = self.parsed_chart.get_ChartItemCollection()[0].get_ChartItem()
 
@@ -63,32 +61,32 @@ class PyanxUnitTest(unittest.TestCase):
   def test_ChartItemNodes(self):
     chart_items = self.parsed_chart.get_ChartItemCollection()[0].get_ChartItem()
 
-    self.assertEquals('Tyrion', chart_items[0].get_Label())
+    self.assertEquals('Tywin', chart_items[0].get_Label())
     self.assertEquals('Person', chart_items[0].get_End().get_Entity().get_Icon().get_IconStyle().get_Type())
 
-    self.assertEquals('Tywin', chart_items[1].get_Label())
+    self.assertEquals('Jaime', chart_items[1].get_Label())
     self.assertEquals('Person', chart_items[1].get_End().get_Entity().get_Icon().get_IconStyle().get_Type())
 
-    self.assertEquals('Jaime', chart_items[2].get_Label())
-    self.assertEquals('Person', chart_items[2].get_End().get_Entity().get_Icon().get_IconStyle().get_Type())
+    self.assertEquals('Cersei', chart_items[2].get_Label())
+    self.assertEquals('Woman', chart_items[2].get_End().get_Entity().get_Icon().get_IconStyle().get_Type())
 
-    self.assertEquals('Cersei', chart_items[3].get_Label())
-    self.assertEquals('Woman', chart_items[3].get_End().get_Entity().get_Icon().get_IconStyle().get_Type())
+    self.assertEquals('Tyrion', chart_items[3].get_Label())
+    self.assertEquals('Person', chart_items[3].get_End().get_Entity().get_Icon().get_IconStyle().get_Type())
 
   def test_ChartItemEdges(self):
     chart_items = self.parsed_chart.get_ChartItemCollection()[1].get_ChartItem()
 
     self.assertEquals('Father of', chart_items[0].get_Label())
-    self.assertEquals('n1', chart_items[0].get_Link().get_End1Id())
-    self.assertEquals('n0', chart_items[0].get_Link().get_End2Id())
+    self.assertEquals('Tywin', chart_items[0].get_Link().get_End1Id())
+    self.assertEquals('Tyrion', chart_items[0].get_Link().get_End2Id())
 
     self.assertEquals('Brother of', chart_items[1].get_Label())
-    self.assertEquals('n2', chart_items[1].get_Link().get_End1Id())
-    self.assertEquals('n0', chart_items[1].get_Link().get_End2Id())
+    self.assertEquals('Jaime', chart_items[1].get_Link().get_End1Id())
+    self.assertEquals('Tyrion', chart_items[1].get_Link().get_End2Id())
 
     self.assertEquals('Sister of', chart_items[2].get_Label())
-    self.assertEquals('n3', chart_items[2].get_Link().get_End1Id())
-    self.assertEquals('n0', chart_items[2].get_Link().get_End2Id())
+    self.assertEquals('Cersei', chart_items[2].get_Link().get_End1Id())
+    self.assertEquals('Tyrion', chart_items[2].get_Link().get_End2Id())
 
 if __name__ == '__main__':
   unittest.main()
