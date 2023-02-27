@@ -134,7 +134,7 @@ class Pyanx(object):
 
     chart.add_ChartItemCollection(chart_item_collection)
 
-  def create(self, path, pretty=True):
+  def create(self, path, pretty=True, encoding='utf8'):
     chart = anx.Chart(IdReferenceLinking=False)
     chart.add_StrengthCollection(anx.StrengthCollection([
         anx.Strength(DotStyle="DotStyleDashed", Name="Dashed", Id="Dashed"),
@@ -146,5 +146,5 @@ class Pyanx(object):
     self.__add_entities(chart)
     self.__add_links(chart)
 
-    with open(path, 'w') as output_file:
+    with open(path, 'w', encoding=encoding) as output_file:
       chart.export(output_file, 0, pretty_print=pretty, namespacedef_=None)
